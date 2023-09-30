@@ -1,57 +1,63 @@
 /* FONTS */
 @font-face {
-	font-family: "Middle Earth";
-	src: url("font/MiddleEarthPersonalUseRegular-axlP5.otf");
-	font-weight: normal;
-	font-style: normal;
+    font-family: "Middle Earth";
+    src: url("font/MiddleEarthPersonalUseRegular-axlP5.otf");
+    font-weight: normal;
+    font-style: normal;
 }
 
 /* *************
 VARIABLES
 ************* */
 :root {
-	--text: #0000;
-	--background: #1e261c;
-	--primary: #92c1c4;
-	--secondary: #d5e0af;
-	--accent: #b5cc78;
-	--focus: #c25a47;
+    --text: #0000;
+    --background: #1e261c;
+    --primary: #92c1c4;
+    --secondary: #d5e0af;
+    --accent: #b5cc78;
+    --focus: #c25a47;
 
-	/* fonts */
-	--tolkien-font: "Middle Earth", "Iowan Old Style", "Palatino Linotype",
-		"URW Palladio L", P052, serif;
-	--primary-font: "Times New Roman", "Iowan Old Style", "Palatino Linotype",
-		"URW Palladio L", P052, serif;
+    /* fonts */
+    --tolkien-font: "Middle Earth", "Iowan Old Style", "Palatino Linotype",
+        "URW Palladio L", P052, serif;
+    --primary-font: "Times New Roman", "Iowan Old Style", "Palatino Linotype",
+        "URW Palladio L", P052, serif;
 }
 
 body {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 
-	font-family: var(--primary-font);
+    font-family: var(--primary-font);
+
+    background-image: url("img/leather-bg.png");
+    background-repeat: repeat;
+    background-size: 40em;
+
+    color: white;
 }
 
 header {
-	position: absolute;
-	top: 0;
+    position: absolute;
+    top: 0;
 
-	width: 100vw;
-	height: 100vh;
+    width: 100vw;
+    height: 100vh;
 
-	border: ;
+    border: ;
 }
 
 h1 {
-	font-family: var(--tolkien-font);
+    font-family: var(--tolkien-font);
 
-	text-align: center;
+    text-align: center;
 }
 
 header p {
-	font-family: var(--tolkien-font);
+    font-family: var(--tolkien-font);
 }
 
 header p:nth-of-type(2) {
-	text-align: center;
+    text-align: center;
 }
