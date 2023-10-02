@@ -159,14 +159,6 @@ article section:first-of-type > p {
     text-align: center;
 }
 
-/* article section:first-of-type > div {
-    position: relative;
-    left: calc(50% - (32em / 2));
-
-    max-width: 32em;
-    max-height: 32em;
-} */
-
 /*
 Ik heb echt naar meerdere oplossingen gekeken hiervoor maar
 dit is gewoon niet responsive te krijgen omdat de 
@@ -232,48 +224,6 @@ queries om het wel nog responsive te laten lijken.
     }
 }
 
-/* .circle {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    position: relative;
-    left: calc(50% - 250px);
-
-    border-radius: 50%;
-
-    max-width: 500px;
-    height: 500px;
-}
-
-.circle div {
-    position: absolute;
-
-    width: 100%;
-    height: 100%;
-
-    animation: rotateText 60s linear infinite;
-}
-
-.circle div p span {
-    position: absolute;
-    left: 50%;
-    transform-origin: left 250px;
-
-    font-size: 1.5em;
-    font-family: var(--tolkien-font);
-    text-shadow: 0.5em 0.5em 1em var(--accent);
-}
-
-@keyframes rotateText {
-    0% {
-        transform: rotate(0deg);
-    }
-    100% {
-        transform: rotate(360deg);
-    }
-} */
-
 /* *************
 TABLE OF CONTENTS
 ************* */
@@ -295,7 +245,7 @@ article section:nth-of-type(2) a {
 CHAPTER PAGES
 ************* */
 
-article section:not(:first-of-type, :nth-of-type(2)) p:first-of-type {
+article section:not(:first-of-type, :nth-of-type(2)) > p:first-of-type {
     margin: 0;
 
     font-size: 1.5em;
@@ -323,7 +273,26 @@ article section img {
     border-radius: 5px;
 
     max-width: 100%;
-    height: auto;
+    max-height: 100%;
+}
+
+/* *************
+CAROLINGIAN
+************* */
+
+#carolingian > div {
+    margin-top: 1em;
+}
+
+#carolingian > div p {
+    max-width: 7em;
+
+    font-size: 2.5em;
+    font-family: var(--tolkien-font);
+    word-wrap: break-word;
+    text-indent: 0;
+    text-align: center;
+    line-height: 1;
 }
 
 /* *************
@@ -338,15 +307,4 @@ MEDIA QUERIES
 
         margin-top: 0;
     }
-
-    /* .circle {
-        left: calc(50% - 125px);
-
-        width: 250px;
-        height: 250px;
-    }
-
-    .circle div p span {
-        transform-origin: 0 125px;
-    } */
 }
