@@ -210,20 +210,6 @@ queries om het wel nog responsive te laten lijken.
     }
 }
 
-@media (max-width: 54em) {
-    .circle {
-        --circle-size: 350px;
-        left: calc(50% - (var(--circle-size) / 2));
-    }
-}
-
-@media (max-width: 30em) {
-    .circle {
-        --circle-size: 250px;
-        top: calc(50% - (var(--circle-size) / 1));
-    }
-}
-
 /* *************
 TABLE OF CONTENTS
 ************* */
@@ -285,6 +271,7 @@ CAROLINGIAN
 }
 
 #carolingian > div p {
+    min-width: 1em;
     max-width: 7em;
 
     font-size: 2.5em;
@@ -306,5 +293,17 @@ MEDIA QUERIES
         row-gap: 1em;
 
         margin-top: 0;
+    }
+
+    .circle {
+        --circle-size: 350px;
+        left: calc(50% - (var(--circle-size) / 2));
+    }
+}
+
+@media (max-width: 30em) {
+    .circle {
+        --circle-size: 250px;
+        top: calc(50% - (var(--circle-size) / 1));
     }
 }

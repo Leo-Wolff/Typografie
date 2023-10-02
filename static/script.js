@@ -1,17 +1,17 @@
-const text = document.getElementById("text")
+const text = document.querySelector("article > section:first-of-type div p")
 const textLength = text.innerText.length
 
 text.innerHTML = text.innerText
     .split("")
     .map(
-        (char, i) =>
+        (letter, i) =>
             `<span style="transform: rotate(${
                 (i * 360) / textLength
-            }deg);" >${char}</span>`
+            }deg);" >${letter}</span>`
     )
     .join("")
 
-const container = document.getElementById("fireflies-container")
+const container = document.querySelector("body > div:first-of-type")
 const fireflyTotal = 300
 
 createFirefly = () => {
@@ -38,19 +38,18 @@ positionFirefly = (element) => {
 animateFirefly = (firefly) => {
     const randomX = Math.random() * window.innerWidth
     const randomY = Math.random() * document.body.clientHeight
-    const duration = Math.random() * 10000 + 5000 // Random duration between 2 to 5 seconds
+    const duration = Math.random() * 10000 + 5000
 
     firefly.style.transition = `transform ${duration}ms linear`
 
+    firefly.style.transform = `translate(${
+        randomX - parseInt(firefly.style.left)
+    }px, ${randomY - parseInt(firefly.style.top)}px)`
+
     setTimeout(() => {
-        firefly.style.transform = `translate(${
-            randomX - parseInt(firefly.style.left)
-        }px, ${randomY - parseInt(firefly.style.top)}px)`
-        setTimeout(() => {
-            container.removeChild(firefly) // Remove the firefly when the animation is done
-            createFirefly()
-        }, duration)
-    }, 0)
+        container.removeChild(firefly)
+        createFirefly()
+    }, duration)
 }
 
 for (i = 0; i < fireflyTotal; i++) {
