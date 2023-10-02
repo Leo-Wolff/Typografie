@@ -29,6 +29,7 @@ VARIABLES
     --primary: #3b2a2c;
     --secondary: #926960;
     --accent: #da9863;
+    --circle-size: 400px;
 
     /* fonts */
     --tolkien-font: "Carolingia", "Iowan Old Style", "Palatino Linotype",
@@ -134,15 +135,80 @@ article section:first-of-type > p {
     text-align: center;
 }
 
-article section:first-of-type > div {
+/* article section:first-of-type > div {
     position: relative;
     left: calc(50% - (32em / 2));
 
     max-width: 32em;
     max-height: 32em;
-}
+} */
+
+/*
+Ik heb echt naar meerdere oplossingen gekeken hiervoor maar
+dit is gewoon niet responsive te krijgen omdat de 
+transform-origin echt een vaste unit moet gebruiken zoals 
+px. Zodra center, of procent wordt gebruikt verandert het 
+de positie van de letters compleet (met em is het minder te
+merken, maar je ziet wel dat de animatie toch niet helemaal
+beweegt zoals het hoort). Van alle voorbeelden die ik heb
+gevonden voor deze animatie type is hier niet een responsive
+versie van die ik zelf kon vinden dus daarom de media
+queries om het wel nog responsive te laten lijken.
+ */
 
 .circle {
+    position: relative;
+    top: calc(50% - (var(--circle-size) / 1.25));
+    left: calc(50% - (var(--circle-size) / 2));
+
+    width: var(--circle-size);
+    height: var(--circle-size);
+}
+
+#text {
+    position: relative;
+
+    width: var(--circle-size);
+    height: var(--circle-size);
+
+    animation: effect 60s linear infinite;
+}
+
+#text span {
+    position: absolute;
+    left: 50%;
+    display: block;
+    transform-origin: left calc(var(--circle-size) / 2);
+
+    font-size: 1.5em;
+    font-family: var(--tolkien-font);
+    text-shadow: 0.5em 0.5em 1em var(--accent);
+}
+
+@keyframes effect {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@media (max-width: 54em) {
+    .circle {
+        --circle-size: 350px;
+        left: calc(50% - (var(--circle-size) / 2));
+    }
+}
+
+@media (max-width: 30em) {
+    .circle {
+        --circle-size: 250px;
+        top: calc(50% - (var(--circle-size) / 1));
+    }
+}
+
+/* .circle {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -168,7 +234,7 @@ article section:first-of-type > div {
 .circle div p span {
     position: absolute;
     left: 50%;
-    transform-origin: 0 250px;
+    transform-origin: left 250px;
 
     font-size: 1.5em;
     font-family: var(--tolkien-font);
@@ -182,7 +248,7 @@ article section:first-of-type > div {
     100% {
         transform: rotate(360deg);
     }
-}
+} */
 
 /* *************
 TABLE OF CONTENTS
@@ -249,7 +315,7 @@ MEDIA QUERIES
         margin-top: 0;
     }
 
-    .circle {
+    /* .circle {
         left: calc(50% - 125px);
 
         width: 250px;
@@ -258,5 +324,5 @@ MEDIA QUERIES
 
     .circle div p span {
         transform-origin: 0 125px;
-    }
+    } */
 }

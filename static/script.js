@@ -1,4 +1,5 @@
-const text = document.querySelector(".circle div p")
+// const text = document.querySelector(".circle div p")
+const text = document.getElementById("text")
 const textLength = text.innerText.length
 
 text.innerHTML = text.innerText
