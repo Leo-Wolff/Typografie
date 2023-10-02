@@ -25,9 +25,9 @@ VARIABLES
 ************* */
 :root {
     --text: #321325;
-    --background: #ffebcb;
-    --primary: #3b2a2c;
-    --secondary: #926960;
+    --paper: #ffebcb;
+    --background: #16040f;
+    /* --secondary: #926960; */
     --accent: #da9863;
     --circle-size: 400px;
 
@@ -52,7 +52,7 @@ body {
 
     font-size: 1em;
     color: var(--text);
-    background-color: var(--primary);
+    background-color: var(--background);
 }
 
 h1 {
@@ -68,6 +68,30 @@ p {
 
     font-family: var(--primary-font);
     text-indent: 1em;
+}
+
+/* *************
+BACKGROUND
+************* */
+
+.firefly {
+    position: absolute;
+    background-color: #fff;
+    border-radius: 50%;
+    animation: glow 2s infinite ease-in-out;
+
+    z-index: -1;
+}
+
+@keyframes glow {
+    0% {
+        box-shadow: 0 0 1em 1em var(--accent);
+        opacity: 1;
+    }
+    100% {
+        box-shadow: 0 0 1em 0.5em var(--accent);
+        opacity: 0.5;
+    }
 }
 
 /* *************
@@ -91,7 +115,7 @@ article section {
 
     height: 85vh;
 
-    background-color: var(--background);
+    background-color: var(--paper);
 }
 
 /* *************
